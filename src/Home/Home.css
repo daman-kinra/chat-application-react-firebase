@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+.messages__container {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(90vh - 4.5rem);
+  overflow-y: auto;
+  padding: 2rem 2rem 4rem 1rem;
+}
+.your__message {
+  align-self: flex-end;
+}
+.white__space {
+  height: 0.5rem;
+  background-color: #e1e5ea;
+}
+.home__page {
+  height: 100vh;
+  background-color: #e1e5ea;
+}
+.single__message {
+  height: auto;
+  max-width: 70%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.1rem;
+}
+.your__message {
+  background-color: #a7bbc7;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem 0.5rem 0 0.5rem;
+  color: #000;
+  font-weight: bold;
+  position: relative;
+  z-index: 0;
+  padding-left: 3rem;
+}
+.your__message p {
+  width: fit-content;
+}
+.others__message {
+  background-color: #da7f8f;
+  padding: 1rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  color: #000;
+  font-weight: bold;
+  position: relative;
+  z-index: 0;
+  padding-right: 3rem;
+}
+.others__message p {
+  display: inline-block;
+  width: fit-content;
+}
+.others__message::before {
+  content: "";
+  position: absolute;
+  /* height: 0.5rem;
+  width: 0.5rem; */
+  top: -9px;
+  left: -5px;
+  z-index: -1;
+  transform: rotate(327deg);
+  /* background-color: #000; */
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 1rem solid #da7f8f;
+}
+.your__message::before {
+  content: "";
+  position: absolute;
+
+  bottom: -7px;
+  right: -6px;
+  z-index: -1;
+  transform: rotate(133deg);
+
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 1rem solid #a7bbc7;
+}
+.single__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-break: break-all;
+  position: relative;
+}
+.name {
+  font-size: 0.6rem;
+}
+.your__message .name {
+  align-self: flex-end;
+}
+.message {
+  margin: 0.5rem 0rem;
+}
+.time {
+  font-size: 0.6rem;
+  bottom: 0;
+  align-self: flex-end;
+}
+.your__message .options {
+  position: absolute;
+}
+.others__message .options {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+.your__message .options {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+.delete__div {
+  position: absolute;
+  top: 16px;
+  left: -76px;
+  background-color: #faf3f3;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.delete__div button {
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: #a7bbc7;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.opening__animation {
+  transform-origin: top right;
+  animation: open 0.3s ease-in-out;
+}
+@keyframes open {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

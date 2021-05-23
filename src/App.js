@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { app } from "./firebase/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Login from "./Login/Login";
+import Home from "./Home/Home";
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/core";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [user, loading] = useAuthState(app.auth());
 
+  if (loading) {
+    return (
+      <div className="loading__area">
+        <HashLoader
+          color={"#a7bbc7"}
+          loading={true}
+          css={override}
+          size={150}
+        />
+      </div>
+    );
+  }
+  if (!user) {
+    return <Login></Login>;
+  }
+  if (user) {
+    return <Home user={user} />;
+  }
+}
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 export default App;
